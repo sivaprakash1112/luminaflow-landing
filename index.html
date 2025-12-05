@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>LuminaFlow Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Optional: Custom Tailwind config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "system-ui", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
+    /* If custom CSS is needed, add here */
+  </style>
+</head>
+
+<body class="bg-white text-slate-900 antialiased">
+
+  <!-- NAVIGATION BAR -->
+  <section class="bg-white/80 backdrop-blur border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <input id="nav-toggle" type="checkbox" class="peer hidden md:hidden" />
+
+      <div class="flex items-center justify-between gap-6">
+        <!-- Brand -->
+        <a href="#" class="flex items-center gap-2">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-sm">
+            <!-- Heroicon: Sparkles -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M12 3l1.5 3.5L17 8l-3.5 1.5L12 13l-1.5-3.5L7 8l3.5-1.5L12 3z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M6 15l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2zM17 14l.75 1.75L19.5 16.5 17.75 17.25 17 19l-.75-1.75L14.5 16.5l1.75-.75L17 14z" />
+            </svg>
+          </span>
+          <span class="flex flex-col">
+            <span class="text-base font-semibold tracking-tight text-slate-900">LuminaFlow</span>
+            <span class="text-xs text-slate-500">Digital Experiences</span>
+          </span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center justify-end gap-8 text-sm font-medium text-slate-600">
+          <a href="#home" class="hover:text-indigo-600 transition-colors">Home</a>
+          <a href="#about" class="hover:text-indigo-600 transition-colors">About</a>
+          <a href="#services" class="hover:text-indigo-600 transition-colors">Services</a>
+          <a href="#contact" class="hover:text-indigo-600 transition-colors">Contact</a>
+          <a href="#contact"
+            class="inline-flex items-center gap-2 rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-slate-800 transition">
+            <span>Get a Quote</span>
+            <!-- Heroicon: Arrow Right -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        </nav>
+
+        <!-- Mobile Hamburger -->
+        <label for="nav-toggle"
+          class="md:hidden inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm hover:border-indigo-500 hover:text-indigo-600 transition">
+          <!-- Feather: Menu -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </label>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        class="mt-3 max-h-0 overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition-all duration-300 peer-checked:max-h-64 md:hidden">
+        <nav class="flex flex-col px-4 py-3 text-sm font-medium text-slate-700">
+          <a href="#home" class="rounded-lg px-3 py-2 hover:bg-slate-50 hover:text-indigo-600 transition">Home</a>
+          <a href="#about" class="rounded-lg px-3 py-2 hover:bg-slate-50 hover:text-indigo-600 transition">About</a>
+          <a href="#services" class="rounded-lg px-3 py-2 hover:bg-slate-50 hover:text-indigo-600 transition">Services</a>
+          <a href="#contact" class="rounded-lg px-3 py-2 hover:bg-slate-50 hover:text-indigo-600 transition">Contact</a>
+          <a href="#contact"
+            class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-slate-800 transition">
+            <span>Get a Quote</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="bg-gradient-to-br from-sky-50 via-white to-indigo-50">
+    <div class="max-w-7xl mx-auto px-6 py-16 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Left: Content -->
+        <div class="space-y-6">
+          <span
+            class="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+            <!-- Heroicon: Bolt -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M13 3L5 14h6l-1 7 8-11h-6l1-7z" />
+            </svg>
+            <span>Modern Websites for Growing Brands</span>
+          </span>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900">
+            Design that turns visitors
+            <span class="text-indigo-600">into customers.</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 max-w-xl">
+            LuminaFlow crafts fast, elegant, and conversion-focused digital experiences.
+            From landing pages to full platforms, we build interfaces your users will love.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <a href="#contact"
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 hover:bg-slate-800 hover:shadow-xl hover:-translate-y-0.5 transition">
+              <span>Book a Free Strategy Call</span>
+              <!-- Heroicon: Phone -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                  d="M3 5l2-2 4 4-2 2c.5 1.5 1.5 3 3 4.5S14.5 16.5 16 17l2-2 4 4-2 2c-1.3.7-3.3.5-5.9-.7-2.6-1.1-4.9-3.1-7-5.2-2.1-2.1-4.1-4.4-5.2-7C2.5 6.3 2.3 4.3 3 3z" />
+              </svg>
+            </a>
+
+            <a href="#services"
+              class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-7 py-3 text-sm font-semibold text-slate-800 shadow-sm hover:border-indigo-200 hover:bg-indigo-50/50 hover:text-indigo-700 hover:-translate-y-0.5 transition">
+              <!-- Feather: Play -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"
+                  d="M8 5v14l11-7z" />
+              </svg>
+              <span>View our services</span>
+            </a>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 text-xs text-slate-500 pt-2">
+            <div class="flex items-center gap-2">
+              <!-- Heroicon: Check Circle -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-emerald-500" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                  d="M9 12l2 2 4-4M12 21a9 9 0 110-18 9 9 0 010 18z" />
+              </svg>
+              <span>Pixel-perfect responsive UI</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-emerald-500" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                  d="M9 12l2 2 4-4M12 21a9 9 0 110-18 9 9 0 010 18z" />
+              </svg>
+              <span>Optimized for performance and SEO</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Image -->
+        <div class="relative">
+          <div
+            class="absolute -top-6 -left-6 h-24 w-24 rounded-3xl bg-indigo-200/40 blur-3xl lg:h-32 lg:w-32">
+          </div>
+          <div
+            class="relative rounded-3xl border border-slate-100 bg-white/80 p-2 shadow-xl shadow-slate-900/5">
+            <img
+              src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Designers collaborating in front of a laptop"
+              class="h-full w-full rounded-2xl object-cover" />
+            <div
+              class="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl bg-white/90 px-4 py-3 shadow-lg">
+              <div class="flex items-center gap-3">
+                <div class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-600/10">
+                  <!-- Heroicon: Cursor Arrow Rays -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                      d="M9.5 3.5L12 8l4.5 2.5L12 13l-2.5 4.5L7 13 2.5 10.5 7 8z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                      d="M15 15l2 2 2-2" />
+                  </svg>
+                </div>
+                <div class="text-xs">
+                  <p class="font-semibold text-slate-900">Conversion uplift</p>
+                  <p class="text-slate-500">+42% avg. in first 60 days</p>
+                </div>
+              </div>
+              <span class="text-[0.65rem] font-semibold uppercase tracking-wide text-emerald-600">
+                Live analytics
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES / FEATURES SECTION -->
+  <section id="services" class="bg-white">
+    <div class="max-w-7xl mx-auto px-6 py-16 lg:py-20">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+            Services tailored to your
+            <span class="text-indigo-600">next launch.</span>
+          </h2>
+          <p class="mt-3 max-w-xl text-sm sm:text-base text-slate-600">
+            We combine thoughtful UX with high-performance engineering to ship digital products faster,
+            with less stress and more polish.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 text-xs text-slate-500">
+          <!-- Heroicon: Shield Check -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-emerald-500" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+              d="M12 4.5l7 3v4.75c0 3.5-2.6 6.75-7 7.75-4.4-1-7-4.25-7-7.75V7.5l7-3z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+              d="M10 12l2 2 4-4" />
+          </svg>
+          <span>End-to-end support · Flexible engagement</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <!-- Card 1 -->
+        <article
+          class="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-indigo-100 hover:shadow-lg">
+          <div
+            class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+            <!-- Feather: Monitor -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <rect x="3" y="4" width="18" height="14" rx="2" ry="2" stroke-width="1.8"></rect>
+              <line x1="8" y1="21" x2="16" y2="21" stroke-width="1.8"></line>
+              <line x1="12" y1="18" x2="12" y2="21" stroke-width="1.8"></line>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Landing Pages & Websites</h3>
+          <p class="text-sm text-slate-600 mb-4">
+            Launch stunning, conversion-optimized marketing sites and one-page funnels that load fast
+            and look perfect on every device.
+          </p>
+          <ul class="space-y-1 text-xs text-slate-500">
+            <li class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+              <span>SEO-ready semantic markup</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+              <span>Custom illustrations & iconography</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Card 2 -->
+        <article
+          class="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-indigo-100 hover:shadow-lg">
+          <div
+            class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+            <!-- Heroicon: Adjustments -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M4 6h6M4 18h6M4 12h10m-4-6v12m6-6h4m-4-6h4m-4 12h4" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Product UI & Dashboards</h3>
+          <p class="text-sm text-slate-600 mb-4">
+            Design and build complex web apps and admin panels with delightful UX patterns and
+            scalable component systems.
+          </p>
+          <ul class="space-y-1 text-xs text-slate-500">
+            <li class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+              <span>Design systems & style guides</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+              <span>Data visualization & charts</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Card 3 -->
+        <article
+          class="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-indigo-100 hover:shadow-lg">
+          <div
+            class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 text-sky-600">
+            <!-- Feather: Zap -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" stroke-width="1.8"></polygon>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Performance & Refactors</h3>
+          <p class="text-sm text-slate-600 mb-4">
+            Clean up old UIs, migrate to modern stacks like Tailwind, and squeeze every millisecond
+            out of your Lighthouse scores.
+          </p>
+          <ul class="space-y-1 text-xs text-slate-500">
+            <li class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+              <span>Core Web Vitals improvements</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+              <span>Accessibility audits (WCAG)</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Card 4 -->
+        <article
+          class="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-indigo-100 hover:shadow-lg">
+          <div
+            class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-violet-50 text-violet-600">
+            <!-- Heroicon: Globe Alt -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M2.5 12h19M12 2.5c2 2.2 3.25 5.15 3.25 9S14 17.3 12 19.5M12 2.5C10 4.7 8.75 7.65 8.75 11.5S10 17.3 12 19.5" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Brand Systems & Design</h3>
+          <p class="text-sm text-slate-600 mb-4">
+            Establish a cohesive visual language for your product across web, email, and social
+            channels with reusable brand assets.
+          </p>
+          <ul class="space-y-1 text-xs text-slate-500">
+            <li class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+              <span>Logo, color, and type systems</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+              <span>Design tokens and documentation</span>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / LEAD FORM SECTION -->
+  <section id="contact" class="bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6 py-16 lg:py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+        <!-- Form -->
+        <div class="rounded-3xl bg-white p-6 sm:p-8 shadow-lg shadow-slate-900/5 border border-slate-100">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+            Tell us about your next project.
+          </h2>
+          <p class="mt-2 text-sm text-slate-600">
+            Share a few details and we’ll respond within one business day with ideas, timelines, and
+            next steps.
+          </p>
+
+          <form action="#" method="POST" class="mt-6 space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="name" class="block text-xs font-semibold uppercase tracking-wide text-slate-600">
+                  Name
+                </label>
+                <input id="name" name="name" type="text" required
+                  class="mt-1 block w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3 py-2.5 text-sm text-slate-900 shadow-sm focus:border-indigo-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-200" />
+              </div>
+              <div>
+                <label for="email" class="block text-xs font-semibold uppercase tracking-wide text-slate-600">
+                  Email
+                </label>
+                <input id="email" name="email" type="email" required
+                  class="mt-1 block w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3 py-2.5 text-sm text-slate-900 shadow-sm focus:border-indigo-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-200" />
+              </div>
+            </div>
+
+            <div>
+              <label for="subject" class="block text-xs font-semibold uppercase tracking-wide text-slate-600">
+                Subject
+              </label>
+              <input id="subject" name="subject" type="text" required
+                class="mt-1 block w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3 py-2.5 text-sm text-slate-900 shadow-sm focus:border-indigo-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-200" />
+            </div>
+
+            <div>
+              <label for="message" class="block text-xs font-semibold uppercase tracking-wide text-slate-600">
+                Project details
+              </label>
+              <textarea id="message" name="message" rows="4" required
+                class="mt-1 block w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3 py-2.5 text-sm text-slate-900 shadow-sm focus:border-indigo-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-200"
+                placeholder="Tell us about your goals, timeline, and any links you'd like us to review."></textarea>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-2">
+              <button type="submit"
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-6 py-2.5 text-sm font-semibold text-white shadow-md shadow-slate-900/10 hover:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5 transition">
+                <span>Send message</span>
+                <!-- Feather: Send -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <line x1="22" y1="2" x2="11" y2="13" stroke-width="1.8"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2" stroke-width="1.8"></polygon>
+                </svg>
+              </button>
+              <p class="text-[0.7rem] text-slate-500">
+                No spam. No templates. A real human will reply.
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Side info / illustration -->
+        <aside class="space-y-6">
+          <div
+            class="relative overflow-hidden rounded-3xl border border-slate-100 bg-slate-900 text-slate-50 p-6 sm:p-7 shadow-xl">
+            <div
+              class="pointer-events-none absolute -top-10 -right-10 h-32 w-32 rounded-full bg-indigo-500/30 blur-3xl">
+            </div>
+            <h3 class="text-lg font-semibold flex items-center gap-2">
+              <!-- Heroicon: Chat Bubble Left Right -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-300" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                  d="M7 8h10M7 12h4m-7 7l2-4h3a7 7 0 100-14 7 7 0 00-7 7v11z" />
+              </svg>
+              Talk to a product-minded designer.
+            </h3>
+            <p class="mt-2 text-sm text-slate-200/90">
+              We’ll review your current UX, identify quick wins, and map a path to your ideal interface
+              — in plain language.
+            </p>
+
+            <dl class="mt-5 space-y-3 text-sm">
+              <div class="flex items-start gap-3">
+                <!-- Feather: Mail -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-4 w-4 text-indigo-300" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <rect x="3" y="5" width="18" height="14" rx="2" ry="2" stroke-width="1.7"></rect>
+                  <polyline points="3 7 12 13 21 7" stroke-width="1.7"></polyline>
+                </svg>
+                <div>
+                  <dt class="font-medium text-slate-50">Email</dt>
+                  <dd class="text-slate-200/80">hello@luminaflow.studio</dd>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <!-- Feather: Phone -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-4 w-4 text-indigo-300" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.77 19.77 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.77 19.77 0 013.11 4.1 2 2 0 015.06 2h3a2 2 0 012 1.72c.12.9.37 1.77.73 2.6a2 2 0 01-.45 2.11L9.1 9.67a16 16 0 006 6l1.24-1.24a2 2 0 012.11-.45 12.44 12.44 0 002.6.73A2 2 0 0122 16.92z" />
+                </svg>
+                <div>
+                  <dt class="font-medium text-slate-50">Call</dt>
+                  <dd class="text-slate-200/80">+1 (414) 555-0123</dd>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <!-- Feather: Map Pin -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-4 w-4 text-indigo-300" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"
+                    d="M12 21s7-4.35 7-11a7 7 0 10-14 0c0 6.65 7 11 7 11z" />
+                  <circle cx="12" cy="10" r="3" stroke-width="1.7"></circle>
+                </svg>
+                <div>
+                  <dt class="font-medium text-slate-50">Studio</dt>
+                  <dd class="text-slate-200/80">Remote-first · Available worldwide</dd>
+                </div>
+              </div>
+            </dl>
+          </div>
+
+          <div
+            class="overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-md shadow-slate-900/5">
+            <img
+              src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Team working in a modern office"
+              class="h-52 w-full object-cover" />
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER SECTION -->
+  <section class="bg-slate-950 text-slate-300">
+    <div class="max-w-7xl mx-auto px-6 py-12 lg:py-14">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
+        <!-- Brand -->
+        <div class="md:col-span-2 space-y-4">
+          <a href="#" class="flex items-center gap-2">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-500 text-white">
+              <!-- Heroicon: Sparkles -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                  d="M12 3l1.5 3.5L17 8l-3.5 1.5L12 13l-1.5-3.5L7 8l3.5-1.5L12 3z" />
+              </svg>
+            </span>
+            <span class="text-base font-semibold tracking-tight text-white">LuminaFlow Studio</span>
+          </a>
+          <p class="text-sm text-slate-400 max-w-md">
+            A small, product-minded team focused on crafting elegant interfaces, clean code, and
+            delightful user journeys for modern SaaS and digital brands.
+          </p>
+          <p class="text-xs text-slate-500">
+            Built with Tailwind CSS · Optimized for performance, accessibility, and maintainability.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="space-y-3">
+          <h3 class="text-sm font-semibold text-white">Quick links</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#home" class="hover:text-indigo-400 transition-colors">Home</a></li>
+            <li><a href="#about" class="hover:text-indigo-400 transition-colors">About</a></li>
+            <li><a href="#services" class="hover:text-indigo-400 transition-colors">Services</a></li>
+            <li><a href="#contact" class="hover:text-indigo-400 transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Social / Contact -->
+        <div class="space-y-3">
+          <h3 class="text-sm font-semibold text-white">Connect</h3>
+          <ul class="space-y-2 text-sm">
+            <li>hello@luminaflow.studio</li>
+            <li>+1 (414) 555-0123</li>
+          </ul>
+          <div class="mt-3 flex gap-3">
+            <!-- Social icons (Feather) -->
+            <a href="#"
+              class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-900 text-slate-200 hover:bg-indigo-500 hover:text-white transition">
+              <!-- Twitter -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"
+                  d="M23 3a10.9 10.9 0 01-3.14 1.54A4.48 4.48 0 0012 8.09v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.44 4.44 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+              </svg>
+            </a>
+            <a href="#"
+              class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-900 text-slate-200 hover:bg-indigo-500 hover:text-white transition">
+              <!-- LinkedIn -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <rect x="2" y="9" width="5" height="13" stroke-width="1.7"></rect>
+                <circle cx="4.5" cy="4.5" r="2.5" stroke-width="1.7"></circle>
+                <path stroke-width="1.7"
+                  d="M9 9h4v2.5A4 4 0 0121 15v7h-5v-6a2 2 0 00-4 0v6H9V9z" />
+              </svg>
+            </a>
+            <a href="#"
+              class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-900 text-slate-200 hover:bg-indigo-500 hover:text-white transition">
+              <!-- Dribbble -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <circle cx="12" cy="12" r="9" stroke-width="1.7"></circle>
+                <path stroke-width="1.7"
+                  d="M8.5 3.5A13 13 0 0114 10c3.5-.5 5.5.5 6 1.5M11 11.5a22 22 0 013 7M5 19c1.5-3 3.8-4.2 7-4.5M4 9a6 6 0 016-3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="mt-8 border-t border-slate-800 pt-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p class="text-xs text-slate-500">
+          © <span class="font-medium">LuminaFlow Studio</span> · All rights reserved.
+        </p>
+        <div class="flex gap-4 text-[0.7rem] text-slate-500">
+          <a href="#" class="hover:text-indigo-400 transition-colors">Privacy</a>
+          <a href="#" class="hover:text-indigo-400 transition-colors">Terms</a>
+          <a href="#" class="hover:text-indigo-400 transition-colors">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>
